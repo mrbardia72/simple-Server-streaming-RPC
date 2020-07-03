@@ -1,0 +1,19 @@
+
+syntax = "proto3";
+
+package calculator;
+option go_package = "calculatorpb";
+
+
+message PrimeNumberDecompositionRequest {
+    int64 number = 1;
+}
+
+message PrimeNumberDecompositionResponse {
+    int64 prime_factor = 1;
+}
+
+service CalculatorService {
+    // Server Streaming
+    rpc PrimeNumberDecomposition (PrimeNumberDecompositionRequest) returns (stream PrimeNumberDecompositionResponse) {};
+}
